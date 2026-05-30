@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1220">
+  <title>TEB防災 | 設定</title>
+  <link rel="manifest" href="./manifest.json"><link rel="icon" href="./assets/logo.png">
+  <link rel="stylesheet" href="./css/style.css"><link rel="stylesheet" href="./css/map.css">
+</head>
+<body data-page="settings">
+  <aside class="sidebar"><a class="brand" href="./index.html"><img src="./assets/logo.png" alt="" width="36" height="36"><span>TEB防災</span></a><nav class="nav"><a href="./index.html" data-nav="home">ホーム</a><a href="./earthquake.html" data-nav="earthquake">地震</a><a href="./weather.html" data-nav="weather">気象</a><a href="./tsunami.html" data-nav="tsunami">津波</a><a href="./typhoon.html" data-nav="typhoon">台風</a><a href="./volcano.html" data-nav="volcano">火山</a><a href="./settings.html" data-nav="settings">設定</a></nav><div class="sidebar-status"><span class="status-dot" id="global-status-dot"></span><span id="global-status-text">初期化中</span></div></aside>
+  <header class="mobile-header"><button class="icon-button" id="menu-toggle" aria-label="メニューを開く">☰</button><a class="mobile-brand" href="./index.html">TEB防災</a><span class="status-dot"></span></header>
+  <main class="app-shell">
+    <section class="page-header"><div><p class="eyebrow">Preferences</p><h1>設定</h1></div></section>
+    <section class="settings-grid">
+      <article class="panel">
+        <div class="panel-heading"><h2>通知</h2></div>
+        <label class="setting-row"><span>緊急地震速報のデスクトップ通知</span><input type="checkbox" id="setting-notify-eew"></label>
+        <label class="setting-row"><span>通知音</span><input type="checkbox" id="setting-sound"></label>
+        <button class="button" id="notify-button">通知権限を確認</button>
+      </article>
+      <article class="panel">
+        <div class="panel-heading"><h2>表示</h2></div>
+        <label class="setting-row"><span>地図を自動で震源へ移動</span><input type="checkbox" id="setting-auto-pan"></label>
+        <label class="setting-row"><span>データを5分ごとに自動更新</span><input type="checkbox" id="setting-auto-refresh"></label>
+      </article>
+      <article class="panel">
+        <div class="panel-heading"><h2>データソース</h2></div>
+        <dl class="source-list">
+          <dt>緊急地震速報</dt><dd>Wolfx JMA EEW WebSocket</dd>
+          <dt>地震情報</dt><dd>P2PQuake API</dd>
+          <dt>気象・津波・台風・火山</dt><dd>気象庁公開データ</dd>
+          <dt>地図タイル</dt><dd>CARTO Dark Matter</dd>
+        </dl>
+      </article>
+    </section>
+  </main>
+  <script src="./js/app.js"></script>
+</body>
+</html>
