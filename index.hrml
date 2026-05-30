@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="TEB防災 - 緊急地震速報、地震、津波、気象警報、台風、火山情報を集約する防災ポータル">
+  <title>TEB防災 | ホーム</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./assets/logo.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3peE3FH9P4I4O6bK5Q5Q5Q5Q5Q5Q5Q=" crossorigin="">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/map.css">
+</head>
+<body data-page="home">
+  <aside class="sidebar" aria-label="主要メニュー">
+    <a class="brand" href="./index.html" aria-label="TEB防災 ホーム">
+      <img src="./assets/logo.png" alt="" width="36" height="36">
+      <span>TEB防災</span>
+    </a>
+    <nav class="nav">
+      <a href="./index.html" data-nav="home">ホーム</a>
+      <a href="./earthquake.html" data-nav="earthquake">地震</a>
+      <a href="./weather.html" data-nav="weather">気象</a>
+      <a href="./tsunami.html" data-nav="tsunami">津波</a>
+      <a href="./typhoon.html" data-nav="typhoon">台風</a>
+      <a href="./volcano.html" data-nav="volcano">火山</a>
+      <a href="./settings.html" data-nav="settings">設定</a>
+    </nav>
+    <div class="sidebar-status">
+      <span class="status-dot" id="global-status-dot"></span>
+      <span id="global-status-text">初期化中</span>
+    </div>
+  </aside>
+
+  <header class="mobile-header">
+    <button class="icon-button" id="menu-toggle" aria-label="メニューを開く">☰</button>
+    <a class="mobile-brand" href="./index.html">TEB防災</a>
+    <span class="status-dot" aria-hidden="true"></span>
+  </header>
+
+  <main class="app-shell">
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">Integrated Disaster Portal</p>
+        <h1>防災情報ダッシュボード</h1>
+      </div>
+      <div class="header-actions">
+        <button class="button" id="notify-button">通知を有効化</button>
+        <button class="button ghost" data-refresh>更新</button>
+      </div>
+    </section>
+
+    <section class="home-grid">
+      <article class="panel alert-panel" id="home-eew-panel">
+        <div class="panel-heading">
+          <h2>緊急地震速報</h2>
+          <span class="badge muted" id="eew-connection-badge">未接続</span>
+        </div>
+        <div id="home-eew-content" class="empty-state">Wolfx JMA EEW に接続しています。</div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>警報・注意報</h2>
+          <a href="./weather.html" class="text-link">詳細</a>
+        </div>
+        <div id="home-weather-content" class="stack-list"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>最新地震</h2>
+          <a href="./earthquake.html" class="text-link">詳細</a>
+        </div>
+        <div id="home-earthquake-content" class="stack-list"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>津波情報</h2>
+          <a href="./tsunami.html" class="text-link">詳細</a>
+        </div>
+        <div id="home-tsunami-content" class="stack-list"></div>
+      </article>
+    </section>
+
+    <section class="panel wide-panel">
+      <div class="panel-heading">
+        <h2>全国概況</h2>
+        <span class="timestamp" id="home-updated-at">--</span>
+      </div>
+      <div id="home-map" class="map large-map" aria-label="全国地図"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/map.js"></script>
+  <script src="./js/eew.js"></script>
+  <script src="./js/earthquake.js"></script>
+  <script src="./js/weather.js"></script>
+  <script src="./js/tsunami.js"></script>
+</body>
+</html>
